@@ -1,6 +1,0 @@
-D:\20170403\jamiewest.AspNetCore.ChartJs\src\ChartJs\bin\Debug\netcoreapp1.1\ChartJs.deps.json
-D:\20170403\jamiewest.AspNetCore.ChartJs\src\ChartJs\obj\Debug\netcoreapp1.1\ChartJs.AssemblyInfo.cs
-D:\20170403\jamiewest.AspNetCore.ChartJs\src\ChartJs\bin\Debug\netcoreapp1.1\ChartJs.dll
-D:\20170403\jamiewest.AspNetCore.ChartJs\src\ChartJs\bin\Debug\netcoreapp1.1\ChartJs.pdb
-D:\20170403\jamiewest.AspNetCore.ChartJs\src\ChartJs\obj\Debug\netcoreapp1.1\ChartJs.dll
-D:\20170403\jamiewest.AspNetCore.ChartJs\src\ChartJs\obj\Debug\netcoreapp1.1\ChartJs.pdb
