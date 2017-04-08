@@ -1,4 +1,4 @@
-namespace jamiewest.ChartJs.DataSets
+namespace jamiewest.ChartJs.Datasets
 {
     public class DataSet
     {

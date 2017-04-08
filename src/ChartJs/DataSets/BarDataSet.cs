@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace jamiewest.ChartJs.DataSets
+namespace jamiewest.ChartJs.Datasets
 {
     public class BarDataSet : DataSet
     {

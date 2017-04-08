@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using jamiewest.ChartJs.DataSets;
+using jamiewest.ChartJs.Datasets;
 
 namespace jamiewest.ChartJs
 {

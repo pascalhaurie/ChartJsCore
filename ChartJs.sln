@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{9BB06D99-9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChartJs.Tests", "test\ChartJs.Tests\ChartJs.Tests.csproj", "{D29A280F-675F-4177-A484-6CA2CD2FADCD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{269CD27C-D43F-4243-BD8C-E12AB9B1EA32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChartJs.Mvc", "src\ChartJs.Mvc\ChartJs.Mvc.csproj", "{AD1C5FA4-74D0-4946-AC65-5397EBA02708}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,8 +36,21 @@ Global
 		{D29A280F-675F-4177-A484-6CA2CD2FADCD}.Release|x64.Build.0 = Release|x64
 		{D29A280F-675F-4177-A484-6CA2CD2FADCD}.Release|x86.ActiveCfg = Release|x86
 		{D29A280F-675F-4177-A484-6CA2CD2FADCD}.Release|x86.Build.0 = Release|x86
+		{AD1C5FA4-74D0-4946-AC65-5397EBA02708}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD1C5FA4-74D0-4946-AC65-5397EBA02708}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD1C5FA4-74D0-4946-AC65-5397EBA02708}.Debug|x64.ActiveCfg = Debug|x64
+		{AD1C5FA4-74D0-4946-AC65-5397EBA02708}.Debug|x64.Build.0 = Debug|x64
+		{AD1C5FA4-74D0-4946-AC65-5397EBA02708}.Debug|x86.ActiveCfg = Debug|x86
+		{AD1C5FA4-74D0-4946-AC65-5397EBA02708}.Debug|x86.Build.0 = Debug|x86
+		{AD1C5FA4-74D0-4946-AC65-5397EBA02708}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD1C5FA4-74D0-4946-AC65-5397EBA02708}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD1C5FA4-74D0-4946-AC65-5397EBA02708}.Release|x64.ActiveCfg = Release|x64
+		{AD1C5FA4-74D0-4946-AC65-5397EBA02708}.Release|x64.Build.0 = Release|x64
+		{AD1C5FA4-74D0-4946-AC65-5397EBA02708}.Release|x86.ActiveCfg = Release|x86
+		{AD1C5FA4-74D0-4946-AC65-5397EBA02708}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D29A280F-675F-4177-A484-6CA2CD2FADCD} = {9BB06D99-9066-4684-A576-4EB405BA033C}
+		{AD1C5FA4-74D0-4946-AC65-5397EBA02708} = {269CD27C-D43F-4243-BD8C-E12AB9B1EA32}
 	EndGlobalSection
 EndGlobal
