@@ -28,5 +28,11 @@ namespace jamiewest.ChartJs
 
         [JsonProperty(PropertyName = "legend")]
         public LegendOptions Legend { get; set; } = new LegendOptions();
+
+        [JsonProperty(PropertyName = "tooltip")]
+        public TooltipOptions Tooltip { get; set; } = new TooltipOptions();
+
+        [JsonProperty(PropertyName = "hover")]
+        public HoverOptions Hover { get; set; } = new HoverOptions();
     }
 }

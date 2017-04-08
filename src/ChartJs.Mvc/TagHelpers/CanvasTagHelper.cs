@@ -14,8 +14,8 @@ namespace jamiewest.ChartJs.Mvc.TagHelpers
 
             sb.AppendLine();
             sb.AppendLine("<script>");
-            sb.AppendLine("    $.getJSON(\"" + Url + "\", function(data){");
-            sb.AppendLine("        var chart = new Chart(document.getElementById(\"" + output.Attributes["Id"].Value + "\"), data);");
+            sb.AppendLine("    $.getJSON(\"" + Url + "\", function(config){");
+            sb.AppendLine("        var chart = new Chart(document.getElementById(\"" + output.Attributes["Id"].Value + "\"), config);");
             sb.AppendLine("    });");
             sb.AppendLine("</script>");
             
