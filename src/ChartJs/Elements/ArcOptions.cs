@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace jamiewest.ChartJs.Elements
 {
-    public class Arc
+    public class ArcOptions
     {
         /// <summary>
         ///     Default fill color for arcs. Inherited from the global default.  

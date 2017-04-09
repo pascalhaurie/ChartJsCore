@@ -12,5 +12,10 @@ namespace jamiewest.ChartJs
 
         [JsonProperty(PropertyName = "options")]
         public ChartOptions Options { get; set; } = new ChartOptions();
+
+        public override string ToString()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
     }
 }
