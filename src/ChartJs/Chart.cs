@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using jamiewest.ChartJs.ContractResolver;
 
 namespace jamiewest.ChartJs
 {
@@ -15,7 +16,14 @@ namespace jamiewest.ChartJs
 
         public override string ToString()
         {
-            return JsonConvert.SerializeObject(this);
+            var settings = new JsonSerializerSettings();
+
+            settings.NullValueHandling = NullValueHandling.Ignore;
+            settings.DefaultValueHandling = DefaultValueHandling.Ignore;
+            settings.MissingMemberHandling = MissingMemberHandling.Ignore;
+            settings.ContractResolver = new ShouldSerializeContractResolver();
+
+            return JsonConvert.SerializeObject(this, settings);
         }
     }
 }

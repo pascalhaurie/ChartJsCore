@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace jamiewest.ChartJs.Datasets
 {
-    public class BarDataSet : DataSet
+    public class BarDataset : Dataset
     {
         /// <summary>
         ///     The data to plot as bars.

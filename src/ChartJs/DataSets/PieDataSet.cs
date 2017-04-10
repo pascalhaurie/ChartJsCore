@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace jamiewest.ChartJs.Datasets
 {
-    public class PieDataSet : DataSet
+    public class PieDataset : Dataset
     {
         /// <summary>
         ///     The data to plot as arcs.

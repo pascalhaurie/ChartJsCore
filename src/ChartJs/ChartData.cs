@@ -17,7 +17,7 @@ namespace jamiewest.ChartJs
         ///     to determine the valid options that can be attached to the dataset.
         /// </summary>
         [JsonProperty(PropertyName = "datasets")]
-        public List<DataSet> DataSets { get; set; }
+        public List<Dataset> Datasets { get; set; } = new List<Dataset>();
 
         /// <summary>
         ///     Optional parameter that is used with the category axis and is used if the axis is horizontal.

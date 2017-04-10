@@ -1,3 +1,5 @@
+using System.ComponentModel;
+using System;
 using Newtonsoft.Json;
 using jamiewest.ChartJs.Options;
 
@@ -8,26 +10,31 @@ namespace jamiewest.ChartJs
         /// <summary>
         ///     Resizes the chart canvas when its container does.
         /// </summary>
+        [DefaultValue(true)]
         [JsonProperty(PropertyName = "responsive")]
         public bool Responsive { get; set; } = true;
 
         /// <summary>
         ///     Duration in milliseconds it takes to animate to new size after a resize event.
         /// </summary>
+        [DefaultValue(0)]
         [JsonProperty(PropertyName = "responsiveAnimationDuration")]
         public int ResponsiveAnimationDuration { get; set; } = 0;
 
         /// <summary>
         ///     Maintain the original canvas aspect ratio (width / height) when resizing.
         /// </summary>
+        /// 
+        [DefaultValue(true)]
         [JsonProperty(PropertyName = "maintainAspectRatio")]
         public bool MaintainAspectRatio { get; set; } = true;
 
         /// <summary>
         ///     Events that the chart should listen to for tooltips and hovering.
         /// </summary>
+        ///[DefaultValue(new string[] { "mousemove", "mouseout", "click", "touchstart", "touchmove", "touchend" })]
         [JsonProperty(PropertyName = "events")]
-        public string[] Events { get; set; } = new string[] { "mousemove", "mouseout", "click", "touchstart", "touchmove", "touchend" };
+        public string[] Events { get; set; } 
 
         /// <summary>
         ///     Called if the event is of type 'mouseup' or 'click'. Called in the context 
@@ -40,6 +47,7 @@ namespace jamiewest.ChartJs
         ///     Function to generate a legend. Receives the chart object to generate a 
         ///     legend from. Default implementation returns an HTML string.
         /// </summary>
+        [DefaultValue("function (chart) { }")]
         [JsonProperty(PropertyName = "legendCallback")]
         public string LegendCallback { get; set; } = "function (chart) { }";
 
@@ -71,10 +79,23 @@ namespace jamiewest.ChartJs
         [JsonProperty(PropertyName = "tooltip")]
         public TooltipOptions Tooltip { get; set; } = new TooltipOptions();
 
-        
+        // public bool ShouldSerializeTooltip()
+        // {
+        //     var settings = new JsonSerializerSettings();
 
-        
+        //     settings.NullValueHandling = NullValueHandling.Ignore;
+        //     settings.DefaultValueHandling = DefaultValueHandling.Ignore;
 
-        
+        //     var result = JsonConvert.SerializeObject(Tooltip, settings);
+            
+        //     if (result == "{}")
+        //     {
+        //         return false;
+        //     }
+        //     else
+        //     {
+        //         return true;
+        //     }
+        // }
     }
 }

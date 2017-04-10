@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using Newtonsoft.Json;
 
 namespace jamiewest.ChartJs.Options
@@ -7,6 +8,7 @@ namespace jamiewest.ChartJs.Options
         /// <summary>
         ///     The number of milliseconds an animation takes. 
         /// </summary>
+        [DefaultValue(1)]
         [JsonProperty(PropertyName = "duration")]
         public int Duration { get; set; } = 1;
 
@@ -19,6 +21,7 @@ namespace jamiewest.ChartJs.Options
         ///     'easeInElastic', 'easeOutElastic', 'easeInOutElastic', 'easeInBack', 'easeOutBack', 
         ///     'easeInOutBack', 'easeInBounce', 'easeOutBounce', 'easeInOutBounce'. 
         /// </summary>
+        [DefaultValue("easeOutQuart")]
         [JsonProperty(PropertyName = "easing")]
         public string Easing { get; set; } = "easeOutQuart";
 

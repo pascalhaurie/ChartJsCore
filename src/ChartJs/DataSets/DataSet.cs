@@ -1,6 +1,6 @@
 namespace jamiewest.ChartJs.Datasets
 {
-    public class DataSet
+    public class Dataset
     {
         
     }

@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using Newtonsoft.Json;
 
 namespace jamiewest.ChartJs.Options
@@ -10,6 +11,7 @@ namespace jamiewest.ChartJs.Options
         ///     If this value is an object, the left property defines the left padding. 
         ///     Similarly the right, top, and bottom properties can also be specified.
         /// </summary>
+        [DefaultValue(0)]
         [JsonProperty(PropertyName = "padding")]
         public int Padding { get; set; } = 0;
     }

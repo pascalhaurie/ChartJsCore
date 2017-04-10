@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace jamiewest.ChartJs.Datasets
 {
-    public class RadarDataSet : DataSet
+    public class RadarDataset : Dataset
     {
         /// <summary>
         ///     The data to plot in a line.

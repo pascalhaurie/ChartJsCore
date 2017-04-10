@@ -1,8 +1,9 @@
+using ChartJs.ContractResolver;
 using Newtonsoft.Json;
 
 namespace jamiewest.ChartJs.Datasets
 {
-    public class LineDataSet : DataSet
+    public class LineDataset : Dataset
     {
         /// <summary>
         ///     The data to plot in a line.
@@ -57,12 +58,14 @@ namespace jamiewest.ChartJs.Datasets
         /// <summary>
         ///     The fill color under the line.
         /// </summary>
+        [JsonConverter(typeof(SingleOrArrayConverter<string>))]
         [JsonProperty(PropertyName = "backgroundColor")]
         public string[] BackgroundColor { get; set; }
 
         /// <summary>
         ///     The color of the line.
         /// </summary>
+        [JsonConverter(typeof(SingleOrArrayConverter<string>))]
         [JsonProperty(PropertyName = "borderColor")]
         public string[] BorderColor { get; set; }
 
@@ -135,12 +138,14 @@ namespace jamiewest.ChartJs.Datasets
         /// <summary>
         ///      Point background color when hovered.
         /// </summary>
+        [JsonConverter(typeof(SingleOrArrayConverter<string>))]
         [JsonProperty(PropertyName = "pointHoverBackgroundColor")]
         public string[] PointHoverBackgroundColor { get; set; }
 
         /// <summary>
         ///      Point border color when hovered.
         /// </summary>
+        [JsonConverter(typeof(SingleOrArrayConverter<string>))]
         [JsonProperty(PropertyName = "pointHoverBorderColor")]
         public string[] PointHoverBorderColor { get; set; }
 
