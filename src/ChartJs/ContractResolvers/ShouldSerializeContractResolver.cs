@@ -3,7 +3,7 @@ using System.Reflection;
 using Newtonsoft.Json.Serialization;
 using jamiewest.ChartJs.Options;
 
-namespace jamiewest.ChartJs.ContractResolver
+namespace jamiewest.ChartJs.ContractResolvers
 {
     public class ShouldSerializeContractResolver : DefaultContractResolver
     {

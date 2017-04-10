@@ -1,3 +1,4 @@
+using ChartJs.ContractResolvers;
 using Newtonsoft.Json;
 
 namespace jamiewest.ChartJs.Datasets
@@ -31,42 +32,49 @@ namespace jamiewest.ChartJs.Datasets
         /// <summary>
         ///     The fill color under the line.
         /// </summary>
+        [JsonConverter(typeof(SingleOrArrayConverter<string>))]
         [JsonProperty(PropertyName = "backgroundColor")]
         public string[] BackgroundColor { get; set; }
 
         /// <summary>
         ///     The color of the line.
         /// </summary>
+        [JsonConverter(typeof(SingleOrArrayConverter<string>))]
         [JsonProperty(PropertyName = "borderColor")]
         public string[] BorderColor { get; set; }
 
         /// <summary>
         ///     The width of the line in pixels.
         /// </summary>
+        [JsonConverter(typeof(SingleOrArrayConverter<int>))]
         [JsonProperty(PropertyName = "borderWidth")]
-        public int BorderWidth { get; set; }  
+        public int[] BorderWidth { get; set; }
 
         /// <summary>
         ///     Which edge to skip drawing the border for. Options are 'bottom', 'left', 'top', and 'right'.
         /// </summary>
+        [JsonConverter(typeof(SingleOrArrayConverter<string>))]
         [JsonProperty(PropertyName = "borderSkipped")]
-        public string BorderSkipped { get; set; } 
+        public string[] BorderSkipped { get; set; }
 
         /// <summary>
         ///     Bar background color when hovered.
         /// </summary>
+        [JsonConverter(typeof(SingleOrArrayConverter<string>))]
         [JsonProperty(PropertyName = "hoverBackgroundColor")]
-        public string[] HoverBackgroundColor { get; set; } 
+        public string[] HoverBackgroundColor { get; set; }
 
         /// <summary>
         ///     Bar border color when hovered.
         /// </summary>
+        [JsonConverter(typeof(SingleOrArrayConverter<string>))]
         [JsonProperty(PropertyName = "hoverBorderColor")]
         public string[] HoverBorderColor { get; set; }
 
         /// <summary>
         ///     Border width of bar when hovered.
         /// </summary>
+        [JsonConverter(typeof(SingleOrArrayConverter<int>))]
         [JsonProperty(PropertyName = "hoverBorderWidth")]
         public int HoverBorderWidth { get; set; }
 

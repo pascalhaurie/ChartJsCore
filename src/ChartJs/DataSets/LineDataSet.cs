@@ -1,4 +1,4 @@
-using ChartJs.ContractResolver;
+using ChartJs.ContractResolvers;
 using Newtonsoft.Json;
 
 namespace jamiewest.ChartJs.Datasets
@@ -84,6 +84,7 @@ namespace jamiewest.ChartJs.Datasets
         /// <summary>
         ///     Length and spacing of dashes.
         /// </summary>
+        [JsonConverter(typeof(SingleOrArrayConverter<int>))]
         [JsonProperty(PropertyName = "borderDash")]
         public int[] BorderDash { get; set; }
 
@@ -102,36 +103,42 @@ namespace jamiewest.ChartJs.Datasets
         /// <summary>
         ///     The border color for points.
         /// </summary>
+        [JsonConverter(typeof(SingleOrArrayConverter<string>))]
         [JsonProperty(PropertyName = "pointBorderColor")]
         public string[] PointBorderColor { get; set; }
 
         /// <summary>
         ///     The fill color for points.
         /// </summary>
+        [JsonConverter(typeof(SingleOrArrayConverter<string>))]
         [JsonProperty(PropertyName = "pointBackgroundColor")]
         public string[] PointBackgroundColor { get; set; }
 
         /// <summary>
         ///     The width of the point border in pixels.
         /// </summary>
+        [JsonConverter(typeof(SingleOrArrayConverter<int>))]
         [JsonProperty(PropertyName = "pointBorderWidth")]
         public int[] PointBorderWidth { get; set; }
 
         /// <summary>
         ///     The radius of the point shape. If set to 0, nothing is rendered.
         /// </summary>
+        [JsonConverter(typeof(SingleOrArrayConverter<int>))]
         [JsonProperty(PropertyName = "pointRadius")]
         public int[] PointRadius { get; set; }
 
         /// <summary>
         ///     The radius of the point when hovered.
         /// </summary>
+        [JsonConverter(typeof(SingleOrArrayConverter<int>))]
         [JsonProperty(PropertyName = "pointHoverRadius")]
         public int[] PointHoverRadius { get; set; }
 
         /// <summary>
         ///     The pixel size of the non-displayed point that reacts to mouse events.
         /// </summary>
+        [JsonConverter(typeof(SingleOrArrayConverter<int>))]
         [JsonProperty(PropertyName = "pointHitRadius")]
         public int[] PointHitRadius { get; set; }
 
@@ -152,12 +159,14 @@ namespace jamiewest.ChartJs.Datasets
         /// <summary>
         ///      Border width of point when hovered.
         /// </summary>
+        [JsonConverter(typeof(SingleOrArrayConverter<int>))]
         [JsonProperty(PropertyName = "pointHoverBorderWidth")]
         public int[] pointHoverBorderWidth { get; set; }
 
         /// <summary>
         ///      The style of point. Options are 'circle', 'triangle', 'rect', 'rectRounded', 'rectRot', 'cross', 'crossRot', 'star', 'line', and 'dash'.
         /// </summary>
+        [JsonConverter(typeof(SingleOrArrayConverter<int>))]
         [JsonProperty(PropertyName = "pointStyle")]
         public string[] PointStyle { get; set; }
 

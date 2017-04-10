@@ -1,5 +1,5 @@
 using Newtonsoft.Json;
-using jamiewest.ChartJs.ContractResolver;
+using jamiewest.ChartJs.ContractResolvers;
 
 namespace jamiewest.ChartJs
 {
