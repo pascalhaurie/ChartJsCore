@@ -1,10 +1,17 @@
 using Newtonsoft.Json;
-using jamiewest.ChartJs.ContractResolvers;
+using jamiewest.ChartJs.Internal.ContractResolvers;
 
 namespace jamiewest.ChartJs
 {
     public class Chart
     {
+        public Chart() { }
+
+        public Chart(ChartOptions options)
+        {
+            Options = options;
+        }
+
         [JsonProperty(PropertyName = "type")]
         public string Type { get; set; }
 

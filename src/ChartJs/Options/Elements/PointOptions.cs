@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using Newtonsoft.Json;
 
-namespace jamiewest.ChartJs.Elements
+namespace jamiewest.ChartJs.Options.Elements
 {
     public class PointOptions
     {

@@ -73,29 +73,13 @@ namespace jamiewest.ChartJs
         [JsonProperty(PropertyName = "legend")]
         public LegendOptions Legend { get; set; } = new LegendOptions();
 
+        [JsonProperty(PropertyName = "scales")]
+        public ScaleOptions Scales { get; set; } = new ScaleOptions();
+
         [JsonProperty(PropertyName = "title")]
         public TitleOptions Title { get; set; } = new TitleOptions();
 
         [JsonProperty(PropertyName = "tooltip")]
         public TooltipOptions Tooltip { get; set; } = new TooltipOptions();
-
-        // public bool ShouldSerializeTooltip()
-        // {
-        //     var settings = new JsonSerializerSettings();
-
-        //     settings.NullValueHandling = NullValueHandling.Ignore;
-        //     settings.DefaultValueHandling = DefaultValueHandling.Ignore;
-
-        //     var result = JsonConvert.SerializeObject(Tooltip, settings);
-            
-        //     if (result == "{}")
-        //     {
-        //         return false;
-        //     }
-        //     else
-        //     {
-        //         return true;
-        //     }
-        // }
     }
 }

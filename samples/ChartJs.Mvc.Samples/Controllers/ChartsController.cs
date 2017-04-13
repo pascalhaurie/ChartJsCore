@@ -10,10 +10,10 @@ using jamiewest.ChartJs.Datasets;
 namespace ChartJs.Mvc.Samples.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Charts")]
     public class ChartsController : Controller
     {
         [HttpGet]
+        [Route("api/chart/line/basic")]
         public string LineChartExample()
         {
             LineChart chart = new LineChart();
@@ -26,24 +26,37 @@ namespace ChartJs.Mvc.Samples.Controllers
                 "April", 
                 "May", 
                 "June", 
-                "July", 
-                "August", 
-                "September", 
-                "October", 
-                "November", 
-                "December" 
+                "July" 
             };
 
             chart.Data.Datasets.Add(new LineDataset()
             {
-                Label = "Line chart data",
-                Data = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
+                Label = "My First dataset",
                 BackgroundColor = new string[] { "rgba(54, 162, 235, 0.2)" },
                 BorderColor = new string[] { "rgba(54, 162, 235, 1)" },
-                BorderWidth = 1
+                Data = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
+                Fill = false
             });
 
-            chart.Options.Title.Text = "Line Chart";
+            chart.Data.Datasets.Add(new LineDataset()
+            {
+                Label = "My Second dataset",
+                Fill = false,
+                BackgroundColor = new string[] { "rgba(54, 162, 235, 0.2)" },
+                BorderColor = new string[] { "rgba(54, 162, 235, 1)" },
+                Data = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 }
+            });
+
+
+            chart.Options.Responsive = true;
+
+            chart.Options.Title.Display = true;
+            chart.Options.Title.Text = "Chart.js Line Chart";
+
+            chart.Options.Tooltip.Mode = "index";
+            chart.Options.Tooltip.Intersect = true;
+
+            
 
             return chart.ToString();
         }

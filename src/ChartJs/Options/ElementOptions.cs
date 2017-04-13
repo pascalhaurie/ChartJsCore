@@ -1,5 +1,5 @@
 using Newtonsoft.Json;
-using jamiewest.ChartJs.Elements;
+using jamiewest.ChartJs.Options.Elements;
 
 namespace jamiewest.ChartJs.Options
 {

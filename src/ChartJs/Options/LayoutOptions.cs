@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 
 namespace jamiewest.ChartJs.Options
 {
+    [JsonObject]
     public class LayoutOptions
     {
         /// <summary>

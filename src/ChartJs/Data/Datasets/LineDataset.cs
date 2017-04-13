@@ -1,4 +1,4 @@
-using ChartJs.ContractResolvers;
+using jamiewest.ChartJs.Internal.ContractResolvers;
 using Newtonsoft.Json;
 
 namespace jamiewest.ChartJs.Datasets
