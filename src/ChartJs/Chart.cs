@@ -27,7 +27,7 @@ namespace jamiewest.ChartJs
 
             settings.NullValueHandling = NullValueHandling.Ignore;
             settings.DefaultValueHandling = DefaultValueHandling.Ignore;
-            settings.MissingMemberHandling = MissingMemberHandling.Ignore;
+            settings.Formatting = Formatting.Indented;
             settings.ContractResolver = new ShouldSerializeContractResolver();
 
             return JsonConvert.SerializeObject(this, settings);

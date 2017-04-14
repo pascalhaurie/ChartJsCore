@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using jamiewest.ChartJs.Charts;
 using jamiewest.ChartJs.Datasets;
+using jamiewest.ChartJs;
 
 namespace ChartJs.Mvc.Samples.Controllers
 {
@@ -16,7 +17,9 @@ namespace ChartJs.Mvc.Samples.Controllers
         [Route("api/chart/line/basic")]
         public string LineChartExample()
         {
-            LineChart chart = new LineChart();
+            Chart chart = new Chart();
+
+            chart.Type = "line";
             
             chart.Data.Labels = new string[] 
             { 
@@ -55,8 +58,6 @@ namespace ChartJs.Mvc.Samples.Controllers
 
             chart.Options.Tooltip.Mode = "index";
             chart.Options.Tooltip.Intersect = true;
-
-            
 
             return chart.ToString();
         }

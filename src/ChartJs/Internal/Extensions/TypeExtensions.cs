@@ -11,7 +11,8 @@ namespace jamiewest.ChartJs.Internal.Extensions
         {
             if (type.IsArray)
             {
-                return GetTypeName(type.GetElementType()) + "[]";
+                return "array";
+                //return GetTypeName(type.GetElementType()) + "[]";
             }
 
             if (type.GetTypeInfo().IsGenericType)
@@ -24,12 +25,7 @@ namespace jamiewest.ChartJs.Internal.Extensions
                 var genericTypeDefName = type.Name.Substring(0, type.Name.IndexOf('`'));
                 var genericTypeArguments = string.Join(", ", type.GenericTypeArguments.Select(GetTypeName));
 
-                var isEnumerableType = type
-                    .GetTypeInfo()
-                        .GetInterfaces()
-                            .Any(ti => ti.GetGenericTypeDefinition() == typeof(IEnumerable<>));
-
-                if (isEnumerableType)
+                if (type.GetTypeInfo().GetInterfaces().Any(ti => ti.GetGenericTypeDefinition() == typeof(IEnumerable<>)))
                 {
                     return "collection";
                 }
@@ -41,7 +37,7 @@ namespace jamiewest.ChartJs.Internal.Extensions
             if (_primitiveTypeNames.TryGetValue(type, out typeName))
             {
                 return typeName;
-            } 
+            }
 
             // enum's come up as a ValueType so we check IsEnum first.
             if (type.GetTypeInfo().IsEnum)

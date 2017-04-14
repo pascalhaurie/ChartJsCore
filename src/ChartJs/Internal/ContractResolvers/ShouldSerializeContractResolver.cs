@@ -6,83 +6,115 @@ using jamiewest.ChartJs.Options;
 using jamiewest.ChartJs.Internal.Extensions;
 using System.Linq;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Collections;
 
 namespace jamiewest.ChartJs.Internal.ContractResolvers
 {
     public class ShouldSerializeContractResolver : DefaultContractResolver
     {
-        public new static readonly ShouldSerializeContractResolver Instance = new ShouldSerializeContractResolver();
-
         protected override JsonProperty CreateProperty(MemberInfo member, MemberSerialization memberSerialization)
         {
             JsonProperty property = base.CreateProperty(member, memberSerialization);
-            
-            property.ShouldSerialize =
-                instance =>
-                {
-                    if (property.GetType().GetTypeName() == "object")
-                    {
-                        dynamic e = (dynamic)instance;
-                        var prop = e.GetType().GetProperty(property.UnderlyingName).GetValue(e, null);
 
-                        if (HasNonEmptyNode(prop, instance) == false)
+            if (property.GetType().GetTypeName() == "object")
+            {
+                property.ShouldSerialize =
+                    instance =>
+                    {
+                        var value = instance.GetType().GetProperty(property.UnderlyingName).GetValue(instance, null);
+
+                        if (value == null)
                         {
                             return false;
                         }
-                    }
 
-                    return true;
-                };
+                        if (value.GetType().GetTypeName() == "object")
+                        {
+                            if (NodeHasValue(value))
+                            {
+                                return true;
+                            }
+                        }
+                        else
+                        {
+                            if (value.GetType().GetTypeName() == "collection")
+                            {
+                                ICollection enumerable = (ICollection)value;
+                                if (enumerable.Count != 0)
+                                {
+                                    return true;
+                                }
+                                else
+                                {
+                                    return false;
+                                }
+                            }
+
+                            return true;
+                        }
+                        return false;
+
+                    };
+            }
 
             return property;
         }
 
-        private bool HasNonEmptyNode(object Object, object instance)
+        public bool NodeHasValue(object obj)
         {
-            Type objectType = Object.GetType();
-            PropertyInfo[] properties = objectType.GetProperties();
+            Type objType = obj.GetType();
+            PropertyInfo[] properties = objType.GetProperties();
 
             foreach (PropertyInfo property in properties)
             {
-                if (property.GetType().GetTypeName() == "object")
-                {
-                    dynamic b = (dynamic)instance;
-                    var prop = b.GetType().GetProperty(property.GetType()).GetValue(b, null);
+                var value = property.GetValue(obj, null);
 
-                    if (IsEmptyNode(prop))
+                if (value == null)
+                {
+                    return false;
+                }
+
+                if (value.GetType().GetTypeName() == "object")
+                {
+                    return NodeHasValue(value);
+                }
+
+                if (value.GetType().GetTypeName() == "collection")
+                {
+                    ICollection enumerable = (ICollection)value;
+                    if (enumerable.Count != 0)
                     {
                         return true;
                     }
+                }
 
-                    HasNonEmptyNode(property, instance);
+                if (value.GetType().GetTypeName() == "array")
+                {
+                    IList enumerable = (IList)value;
+                    if (enumerable.Count != 0)
+                    {
+                        return true;
+                    }
+                }
+
+                if (value.GetType().GetTypeName() != "object" 
+                    && value.GetType().GetTypeName() != "collection" 
+                    && value.GetType().GetTypeName() != "array")
+                {
+                    if (value != null)
+                    {
+                        var attribute = property.GetCustomAttribute(typeof(DefaultValueAttribute)) as DefaultValueAttribute;
+
+                        if (attribute.Value.ToString() != value.ToString())
+                        {
+                            return true;
+                        }
+                    }
                 }
             }
 
             return false;
-        }
-
-        private bool IsEmptyNode(dynamic Object)
-        {
-            var result = JsonResult(Object);
-
-            if (result == "{}")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        private string JsonResult(object Object)
-        {
-            var settings = new JsonSerializerSettings();
-
-            settings.NullValueHandling = NullValueHandling.Ignore;
-            settings.DefaultValueHandling = DefaultValueHandling.Ignore;
-            
-            return JsonConvert.SerializeObject(Object, settings);
         }
     }
 }
