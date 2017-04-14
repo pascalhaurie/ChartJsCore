@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using Newtonsoft.Json;
+using jamiewest.ChartJs.Internal.ContractResolvers;
 
 namespace jamiewest.ChartJs.Options.Scales
 {
@@ -15,6 +16,7 @@ namespace jamiewest.ChartJs.Options.Scales
         /// <summary>
         /// Color of the grid lines.
         /// </summary>
+        [JsonConverter(typeof(SingleOrArrayConverter<string>))]
         [DefaultValue(new string[] { "rgba(0, 0, 0, 0.1)" })]
         [JsonProperty(PropertyName = "color")]
         public string[] Color { get; set; } = new string[] { "rgba(0, 0, 0, 0.1)" };
@@ -35,6 +37,7 @@ namespace jamiewest.ChartJs.Options.Scales
         /// <summary>
         /// Stroke width of grid lines.
         /// </summary>
+        [JsonConverter(typeof(SingleOrArrayConverter<int>))]
         [DefaultValue(new int[] { 1 })]
         [JsonProperty(PropertyName = "lineWidth")]
         public int[] LineWidth { get; set; } = new int[] { 1 };

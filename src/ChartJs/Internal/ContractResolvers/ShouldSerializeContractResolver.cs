@@ -53,6 +53,7 @@ namespace jamiewest.ChartJs.Internal.ContractResolvers
 
                             return true;
                         }
+
                         return false;
 
                     };
@@ -105,6 +106,11 @@ namespace jamiewest.ChartJs.Internal.ContractResolvers
                     if (value != null)
                     {
                         var attribute = property.GetCustomAttribute(typeof(DefaultValueAttribute)) as DefaultValueAttribute;
+
+                        if (attribute == null)
+                        {
+                            return true;
+                        }
 
                         if (attribute.Value.ToString() != value.ToString())
                         {

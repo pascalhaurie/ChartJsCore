@@ -10,7 +10,7 @@ namespace jamiewest.ChartJs.Options.Scales
         /// </summary>
         [DefaultValue(false)]
         [JsonProperty(PropertyName = "display")]
-        public bool display { get; set; } = false;
+        public bool Display { get; set; } = false;
 
         /// <summary>
         /// The text for the title. (i.e. "# of People", "Response Choices")
@@ -36,14 +36,14 @@ namespace jamiewest.ChartJs.Options.Scales
         /// <summary>
         /// Font size for the scale title.
         /// </summary>
-        [DefaultValue(false)]
+        [DefaultValue(12)]
         [JsonProperty(PropertyName = "fontSize")]
         public int FontSize { get; set; } = 12;
 
         /// <summary>
         /// Font style for the scale title, follows CSS font-style options (i.e. normal, italic, oblique, initial, inherit).
         /// </summary>
-        [DefaultValue(false)]
+        [DefaultValue("normal")]
         [JsonProperty(PropertyName = "fontStyle")]
         public string FontStyle { get; set; } = "normal";
     }

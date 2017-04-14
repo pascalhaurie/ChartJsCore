@@ -79,7 +79,7 @@ namespace jamiewest.ChartJs
         [JsonProperty(PropertyName = "title")]
         public TitleOptions Title { get; set; } = new TitleOptions();
 
-        [JsonProperty(PropertyName = "tooltip")]
+        [JsonProperty(PropertyName = "tooltips")]
         public TooltipOptions Tooltip { get; set; } = new TooltipOptions();
     }
 }

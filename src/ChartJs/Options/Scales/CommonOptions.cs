@@ -20,6 +20,7 @@ namespace jamiewest.ChartJs.Options.Scales
         /// <summary>
         ///     Position of the scale. Possible values are 'top', 'left', 'bottom' and 'right'.
         /// </summary>
+        [DefaultValue("left")]
         [JsonProperty(PropertyName = "position")]
         public string Position { get; set; } = "left";
 

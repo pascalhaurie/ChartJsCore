@@ -7,12 +7,15 @@ using Microsoft.AspNetCore.Mvc;
 using jamiewest.ChartJs.Charts;
 using jamiewest.ChartJs.Datasets;
 using jamiewest.ChartJs;
+using jamiewest.ChartJs.Options.Scales;
 
 namespace ChartJs.Mvc.Samples.Controllers
 {
     [Produces("application/json")]
     public class ChartsController : Controller
     {
+        Random _randomNumber = new Random();
+
         [HttpGet]
         [Route("api/chart/line/basic")]
         public string LineChartExample()
@@ -35,10 +38,19 @@ namespace ChartJs.Mvc.Samples.Controllers
             chart.Data.Datasets.Add(new LineDataset()
             {
                 Label = "My First dataset",
+                Fill = false,
                 BackgroundColor = new string[] { "rgba(54, 162, 235, 0.2)" },
                 BorderColor = new string[] { "rgba(54, 162, 235, 1)" },
-                Data = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
-                Fill = false
+                Data = new int[] 
+                {
+                    RandomScalingFactor(),
+                    RandomScalingFactor(),
+                    RandomScalingFactor(),
+                    RandomScalingFactor(),
+                    RandomScalingFactor(),
+                    RandomScalingFactor(),
+                    RandomScalingFactor()
+                }
             });
 
             chart.Data.Datasets.Add(new LineDataset()
@@ -47,9 +59,17 @@ namespace ChartJs.Mvc.Samples.Controllers
                 Fill = false,
                 BackgroundColor = new string[] { "rgba(54, 162, 235, 0.2)" },
                 BorderColor = new string[] { "rgba(54, 162, 235, 1)" },
-                Data = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 }
+                Data = new int[]
+                {
+                    RandomScalingFactor(),
+                    RandomScalingFactor(),
+                    RandomScalingFactor(),
+                    RandomScalingFactor(),
+                    RandomScalingFactor(),
+                    RandomScalingFactor(),
+                    RandomScalingFactor()
+                },
             });
-
 
             chart.Options.Responsive = true;
 
@@ -59,7 +79,31 @@ namespace ChartJs.Mvc.Samples.Controllers
             chart.Options.Tooltip.Mode = "index";
             chart.Options.Tooltip.Intersect = true;
 
+            chart.Options.Hover.Mode = "nearest";
+            chart.Options.Hover.intersect = true;
+
+            var xAxesCommonOption = new CommonOptions();
+
+            xAxesCommonOption.Display = true;
+            xAxesCommonOption.ScaleLabel.Display = true;
+            xAxesCommonOption.ScaleLabel.LabelString = "Month";
+
+            chart.Options.Scales.xAxes.Add(xAxesCommonOption);
+
+            var yAxesCommonOption = new CommonOptions();
+
+            yAxesCommonOption.Display = true;
+            yAxesCommonOption.ScaleLabel.Display = true;
+            yAxesCommonOption.ScaleLabel.LabelString = "Value";
+
+            chart.Options.Scales.yAxes.Add(yAxesCommonOption);
+
             return chart.ToString();
+        }
+
+        private int RandomScalingFactor()
+        {
+            return _randomNumber.Next(-100, 100);
         }
     }
 }
