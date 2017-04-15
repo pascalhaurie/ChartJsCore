@@ -24,6 +24,7 @@ namespace jamiewest.ChartJs.Internal.ContractResolvers
             IList<T> list = (IList<T>)value;
             if (list.Count == 1)
             {
+                
                 value = list[0];
             }
             serializer.Serialize(writer, value);

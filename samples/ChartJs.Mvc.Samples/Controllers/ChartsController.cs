@@ -56,7 +56,88 @@ namespace ChartJs.Mvc.Samples.Controllers
             chart.Data.Datasets.Add(new LineDataset()
             {
                 Label = "My Second dataset",
-                Fill = false,
+                //Fill = false,
+                BackgroundColor = new string[] { "rgba(54, 162, 235, 0.2)" },
+                BorderColor = new string[] { "rgba(54, 162, 235, 1)" },
+                Data = new int[]
+                {
+                    RandomScalingFactor(),
+                    RandomScalingFactor(),
+                    RandomScalingFactor(),
+                    RandomScalingFactor(),
+                    RandomScalingFactor(),
+                    RandomScalingFactor(),
+                    RandomScalingFactor()
+                },
+            });
+
+            chart.Options.Responsive = true;
+
+            chart.Options.Title.Display = true;
+            chart.Options.Title.Text = "Chart.js Line Chart";
+
+            chart.Options.Tooltip.Mode = "index";
+            chart.Options.Tooltip.Intersect = true;
+
+            chart.Options.Hover.Mode = "nearest";
+            chart.Options.Hover.intersect = true;
+
+            var xAxesCommonOption = new CommonOptions();
+
+            xAxesCommonOption.Display = true;
+            xAxesCommonOption.ScaleLabel.Display = true;
+            xAxesCommonOption.ScaleLabel.LabelString = "Month";
+
+            chart.Options.Scales.xAxes.Add(xAxesCommonOption);
+
+            var yAxesCommonOption = new CommonOptions();
+
+            yAxesCommonOption.Display = true;
+            yAxesCommonOption.ScaleLabel.Display = true;
+            yAxesCommonOption.ScaleLabel.LabelString = "Value";
+
+            chart.Options.Scales.yAxes.Add(yAxesCommonOption);
+
+            return chart.ToString();
+        }
+
+        [HttpGet]
+        [Route("api/chart/bar/basic")]
+        public string BarChartExample()
+        {
+            BarChart chart = new BarChart();
+
+            chart.Data.Labels = new string[]
+            {
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July"
+            };
+
+            chart.Data.Datasets.Add(new BarDataset()
+            {
+                Label = "My First dataset",
+                BackgroundColor = new string[] { "rgba(54, 162, 235, 0.2)" },
+                BorderColor = new string[] { "rgba(54, 162, 235, 1)" },
+                Data = new int[]
+                {
+                    RandomScalingFactor(),
+                    RandomScalingFactor(),
+                    RandomScalingFactor(),
+                    RandomScalingFactor(),
+                    RandomScalingFactor(),
+                    RandomScalingFactor(),
+                    RandomScalingFactor()
+                }
+            });
+
+            chart.Data.Datasets.Add(new LineDataset()
+            {
+                Label = "My Second dataset",
                 BackgroundColor = new string[] { "rgba(54, 162, 235, 0.2)" },
                 BorderColor = new string[] { "rgba(54, 162, 235, 1)" },
                 Data = new int[]

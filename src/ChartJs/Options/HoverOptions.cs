@@ -16,8 +16,8 @@ namespace jamiewest.ChartJs.Options
         ///     If true, the hover mode only applies when the mouse position intersects an item on the chart.
         /// </summary>
         [DefaultValue(true)]
-        [JsonProperty(PropertyName = "intersect")]
-        public bool intersect { get; set; } = true;
+        [JsonProperty(PropertyName = "intersect", DefaultValueHandling = DefaultValueHandling.Include)]
+        public bool? intersect { get; set; }
 
         /// <summary>
         ///     Duration in milliseconds it takes to animate hover style changes.

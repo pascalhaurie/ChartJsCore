@@ -32,8 +32,8 @@ namespace jamiewest.ChartJs.Datasets
         /// <summary>
         ///     If true, fill the area under the line.
         /// </summary>
-        [JsonProperty(PropertyName = "fill")]
-        public bool Fill { get; set; }
+        [JsonProperty(PropertyName = "fill", DefaultValueHandling = DefaultValueHandling.Include)]
+        public bool? Fill { get; set; }
 
         /// <summary>
         ///     Algorithm used to interpolate a smooth curve from the discrete data points. 

@@ -43,9 +43,9 @@ namespace jamiewest.ChartJs.Options
         /// <summary>
         ///     Font color inherited from global configuration.
         /// </summary>
-        [DefaultValue(new string[] { "rgba(102,102,102,1)" })]
+        [DefaultValue("rgba(102,102,102,1)")]
         [JsonProperty(PropertyName = "fontColor")]
-        public string[] FontColor { get; set; } = new string[] { "rgba(102,102,102,1)" };
+        public string[] FontColor { get; set; } 
 
         /// <summary>
         ///     Font styling of the title.

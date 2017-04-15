@@ -1,6 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace jamiewest.ChartJs
 {
@@ -12,6 +13,8 @@ namespace jamiewest.ChartJs
 
             serializer.NullValueHandling = NullValueHandling.Ignore;
             serializer.DefaultValueHandling = DefaultValueHandling.Ignore;
+
+            //Debug.WriteLine(JToken.FromObject(obj, serializer).ToString());
 
             return JToken.FromObject(obj, serializer).RemoveEmptyChildren().ToString();
             //return JToken.FromObject(obj).RemoveEmptyChildren().ToString();

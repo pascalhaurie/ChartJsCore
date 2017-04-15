@@ -26,9 +26,4 @@
   </ItemGroup>
 
 
-  <ItemGroup>
-    <Folder Include="Views\Charts\" />
-  </ItemGroup>
-
-
 </Project>

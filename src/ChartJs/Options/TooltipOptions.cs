@@ -26,7 +26,7 @@ namespace jamiewest.ChartJs.Options
         ///         will be applied at all times.
         /// </summary>
         [DefaultValue(true)]
-        [JsonProperty(PropertyName = "intersect")]
+        [JsonProperty(PropertyName = "intersect", DefaultValueHandling = DefaultValueHandling.Include)]
         public bool Intersect { get; set; } = true;
 
         /// <summary>
