@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace jamiewest.ChartJs.Internal.ContractResolvers
+namespace jamiewest.ChartJs.Utilities
 {
     public class SingleOrArrayConverter<T> : JsonConverter
     {

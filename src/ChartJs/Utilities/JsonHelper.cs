@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System.Diagnostics;
 
-namespace jamiewest.ChartJs
+namespace jamiewest.ChartJs.Utilities
 {
     public static class JsonHelper
     {

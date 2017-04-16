@@ -12,6 +12,10 @@ namespace Microsoft.Extensions.DependencyInjection
             this IServiceCollection services,
             Action<ChartOptions> setupAction)
         {
+            if (setupAction != null)
+            {
+                services.Configure(setupAction);
+            }
         }
     }
 }

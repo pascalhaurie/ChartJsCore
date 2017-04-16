@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using Newtonsoft.Json;
-using jamiewest.ChartJs.Internal.ContractResolvers;
+using jamiewest.ChartJs.Utilities;
 
 namespace jamiewest.ChartJs.Options.Scales
 {

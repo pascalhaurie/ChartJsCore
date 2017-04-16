@@ -8,9 +8,8 @@ namespace jamiewest.ChartJs.Options
         /// <summary>
         ///     Display the title block.
         /// </summary>
-        [DefaultValue(true)]
-        [JsonProperty(PropertyName = "display")]
-        public bool Display { get; set; } = true;
+        [JsonProperty(PropertyName = "display", DefaultValueHandling = DefaultValueHandling.Include)]
+        public bool? Display { get; set; }
 
         /// <summary>
         ///     Position of the title. Possible values are 'top', 'left', 'bottom' and 'right'.

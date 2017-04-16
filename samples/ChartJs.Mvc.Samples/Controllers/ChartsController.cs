@@ -1,13 +1,10 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using jamiewest.ChartJs.Charts;
 using jamiewest.ChartJs.Datasets;
 using jamiewest.ChartJs;
 using jamiewest.ChartJs.Options.Scales;
+using ChartJs.Mvc.Samples.Utilities;
 
 namespace ChartJs.Mvc.Samples.Controllers
 {
@@ -39,8 +36,8 @@ namespace ChartJs.Mvc.Samples.Controllers
             {
                 Label = "My First dataset",
                 Fill = false,
-                BackgroundColor = new string[] { "rgba(54, 162, 235, 0.2)" },
-                BorderColor = new string[] { "rgba(54, 162, 235, 1)" },
+                BackgroundColor = new string[] { ChartColors.Red },
+                BorderColor = new string[] { ChartColors.Red },
                 Data = new int[] 
                 {
                     RandomScalingFactor(),
@@ -56,9 +53,9 @@ namespace ChartJs.Mvc.Samples.Controllers
             chart.Data.Datasets.Add(new LineDataset()
             {
                 Label = "My Second dataset",
-                //Fill = false,
-                BackgroundColor = new string[] { "rgba(54, 162, 235, 0.2)" },
-                BorderColor = new string[] { "rgba(54, 162, 235, 1)" },
+                Fill = false,
+                BackgroundColor = new string[] { ChartColors.Blue },
+                BorderColor = new string[] { ChartColors.Blue },
                 Data = new int[]
                 {
                     RandomScalingFactor(),
@@ -121,8 +118,9 @@ namespace ChartJs.Mvc.Samples.Controllers
             chart.Data.Datasets.Add(new BarDataset()
             {
                 Label = "My First dataset",
-                BackgroundColor = new string[] { "rgba(54, 162, 235, 0.2)" },
-                BorderColor = new string[] { "rgba(54, 162, 235, 1)" },
+                BackgroundColor = new string[] { "rgba(255, 99, 132, .5)" },
+                BorderColor = new string[] { ChartColors.Red },
+                BorderWidth = new int[] { 1 },
                 Data = new int[]
                 {
                     RandomScalingFactor(),
@@ -135,11 +133,12 @@ namespace ChartJs.Mvc.Samples.Controllers
                 }
             });
 
-            chart.Data.Datasets.Add(new LineDataset()
+            chart.Data.Datasets.Add(new BarDataset()
             {
                 Label = "My Second dataset",
-                BackgroundColor = new string[] { "rgba(54, 162, 235, 0.2)" },
-                BorderColor = new string[] { "rgba(54, 162, 235, 1)" },
+                BackgroundColor = new string[] { "rgba(54, 162, 235, .5)" },
+                BorderColor = new string[] { ChartColors.Blue },
+                BorderWidth = new int[] { 1 },
                 Data = new int[]
                 {
                     RandomScalingFactor(),
@@ -182,7 +181,47 @@ namespace ChartJs.Mvc.Samples.Controllers
             return chart.ToString();
         }
 
-        private int RandomScalingFactor()
+        [HttpGet]
+        [Route("api/chart/pie/basic")]
+        public string PieChartExample()
+        {
+            PieChart chart = new PieChart();
+
+            chart.Data.Labels = new string[]
+            {
+                "Red",
+                "Orange",
+                "Yellow",
+                "Green",
+                "Blue"
+            };
+
+            chart.Data.Datasets.Add(new PieDataset()
+            {
+                Label = "Dataset 1",
+                Data = new int[]
+                {
+                    10,
+                    20,
+                    30,
+                    30,
+                    20
+                },
+                BackgroundColor = new string[]
+                {
+                    ChartColors.Red,
+                    ChartColors.Orange, 
+                    ChartColors.Yellow,
+                    ChartColors.Green,
+                    ChartColors.Blue
+                }
+            });
+
+            return chart.ToString();
+        }
+
+
+            private int RandomScalingFactor(int min = -100, int max = 100)
         {
             return _randomNumber.Next(-100, 100);
         }
