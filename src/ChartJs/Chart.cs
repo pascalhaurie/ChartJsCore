@@ -1,15 +1,19 @@
 using Newtonsoft.Json;
 using jamiewest.ChartJs.Utilities;
+using Microsoft.Extensions.Options;
 
 namespace jamiewest.ChartJs
 {
     public class Chart
     {
-        public Chart() { }
-
-        public Chart(ChartOptions options)
+        public Chart()
         {
-            Options = options;
+            Options = new ChartOptions();
+        }
+
+        public Chart(IOptions<ChartOptions> optionsAccessor)
+        {
+            Options = optionsAccessor?.Value ?? new ChartOptions();
         }
 
         [JsonProperty(PropertyName = "type")]
@@ -19,7 +23,7 @@ namespace jamiewest.ChartJs
         public ChartData Data { get; set; } = new ChartData();
 
         [JsonProperty(PropertyName = "options")]
-        public ChartOptions Options { get; set; } = new ChartOptions();
+        public ChartOptions Options { get; set; } 
 
         public override string ToString()
         {

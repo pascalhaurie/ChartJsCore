@@ -5,19 +5,26 @@ using jamiewest.ChartJs.Datasets;
 using jamiewest.ChartJs;
 using jamiewest.ChartJs.Options.Scales;
 using ChartJs.Mvc.Samples.Utilities;
+using Microsoft.Extensions.Options;
 
 namespace ChartJs.Mvc.Samples.Controllers
 {
     [Produces("application/json")]
     public class ChartsController : Controller
     {
+        IOptions<ChartOptions> _options;
         Random _randomNumber = new Random();
+
+        public ChartsController(IOptions<ChartOptions> optionsAccessor)
+        {
+            _options = optionsAccessor;
+        }
 
         [HttpGet]
         [Route("api/chart/line/basic")]
         public string LineChartExample()
         {
-            Chart chart = new Chart();
+            Chart chart = new Chart(_options);
 
             chart.Type = "line";
             
@@ -71,7 +78,7 @@ namespace ChartJs.Mvc.Samples.Controllers
             chart.Options.Responsive = true;
 
             chart.Options.Title.Display = true;
-            chart.Options.Title.Text = "Chart.js Line Chart";
+            //chart.Options.Title.Text = "Chart.js Line Chart";
 
             chart.Options.Tooltip.Mode = "index";
             chart.Options.Tooltip.Intersect = true;
@@ -218,10 +225,9 @@ namespace ChartJs.Mvc.Samples.Controllers
             });
 
             return chart.ToString();
-        }
+        } 
 
-
-            private int RandomScalingFactor(int min = -100, int max = 100)
+        private int RandomScalingFactor(int min = -100, int max = 100)
         {
             return _randomNumber.Next(-100, 100);
         }
