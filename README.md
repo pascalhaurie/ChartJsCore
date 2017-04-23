@@ -12,10 +12,6 @@ First we need to include Chart.js in our project. If we are working with an ASP.
   "name": "asp.net",
   "private": true,
   "dependencies": {
-    "bootstrap": "3.3.7",
-    "jquery": "2.2.0",
-    "jquery-validation": "1.14.0",
-    "jquery-validation-unobtrusive": "3.2.6",
     "chart.js": "2.5.0"
   }
 }
