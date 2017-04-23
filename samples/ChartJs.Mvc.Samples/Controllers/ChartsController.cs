@@ -12,21 +12,13 @@ namespace ChartJs.Mvc.Samples.Controllers
     [Produces("application/json")]
     public class ChartsController : Controller
     {
-        IOptions<ChartOptions> _options;
         Random _randomNumber = new Random();
-
-        public ChartsController(IOptions<ChartOptions> optionsAccessor)
-        {
-            _options = optionsAccessor;
-        }
 
         [HttpGet]
         [Route("api/chart/line/basic")]
         public string LineChartExample()
         {
-            Chart chart = new Chart(_options);
-
-            chart.Type = "line";
+            LineChart chart = new LineChart();
             
             chart.Data.Labels = new string[] 
             { 
