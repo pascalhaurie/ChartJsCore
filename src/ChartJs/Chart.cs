@@ -6,16 +6,6 @@ namespace jamiewest.ChartJs
 {
     public class Chart
     {
-        public Chart()
-        {
-            Options = new ChartOptions();
-        }
-
-        public Chart(IOptions<ChartOptions> optionsAccessor)
-        {
-            Options = optionsAccessor?.Value ?? new ChartOptions();
-        }
-
         [JsonProperty(PropertyName = "type")]
         public string Type { get; set; }
 
@@ -23,7 +13,7 @@ namespace jamiewest.ChartJs
         public ChartData Data { get; set; } = new ChartData();
 
         [JsonProperty(PropertyName = "options")]
-        public ChartOptions Options { get; set; } 
+        public ChartOptions Options { get; set; } = new ChartOptions();
 
         public override string ToString()
         {

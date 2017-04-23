@@ -29,11 +29,6 @@ namespace ChartJs.Mvc.Samples
         {
             // Add framework services.
             services.AddMvc();
-
-            services.AddChartJs(options =>
-            {
-                options.Title.Text = "Wahahahah";
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
