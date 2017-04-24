@@ -1,21 +1,9 @@
 using Newtonsoft.Json;
 
-namespace jamiewest.ChartJs.Datasets
+namespace jamiewest.ChartJs.Data
 {
     public class RadarDataset : Dataset
     {
-        /// <summary>
-        ///     The data to plot in a line.
-        /// </summary>
-        [JsonProperty(PropertyName = "data")]
-        public int[] Data { get; set; }
-
-        /// <summary>
-        ///     The label for the dataset which appears in the legend and tooltips.
-        /// </summary>
-        [JsonProperty(PropertyName = "label")]
-        public string Label { get; set; }
-
         /// <summary>
         ///     If true, fill the area under the line.
         /// </summary>
