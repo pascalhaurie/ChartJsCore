@@ -1,16 +1,25 @@
 using Newtonsoft.Json;
 using jamiewest.ChartJs.Utilities;
-using Microsoft.Extensions.Options;
 
 namespace jamiewest.ChartJs
 {
-    public class Chart
+    public abstract class Chart
     {
-        [JsonProperty(PropertyName = "type")]
-        public string Type { get; set; }
+        private readonly string _type;
 
-        [JsonProperty(PropertyName = "data")]
-        public ChartData Data { get; set; } = new ChartData();
+        public Chart(string type)
+        {
+            _type = type;
+        }
+
+        [JsonProperty(PropertyName = "type")]
+        public string Type 
+        { 
+            get
+            {
+                return _type;
+            } 
+        }
 
         [JsonProperty(PropertyName = "options")]
         public ChartOptions Options { get; set; } = new ChartOptions();

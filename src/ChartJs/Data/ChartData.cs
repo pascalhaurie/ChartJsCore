@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using jamiewest.ChartJs.Datasets;
+using jamiewest.ChartJs.Data;
 
-namespace jamiewest.ChartJs
+namespace jamiewest.ChartJs.Data
 {
-    public class ChartData
+    public class ChartData<TDataset>
+        where TDataset : Dataset
     {
         /// <summary>
         ///     Optional parameter that is used with the category axis.
@@ -17,7 +18,7 @@ namespace jamiewest.ChartJs
         ///     to determine the valid options that can be attached to the dataset.
         /// </summary>
         [JsonProperty(PropertyName = "datasets")]
-        public List<Dataset> Datasets { get; set; } = new List<Dataset>();
+        public List<TDataset> Datasets { get; set; } = new List<TDataset>();
 
         /// <summary>
         ///     Optional parameter that is used with the category axis and is used if the axis is horizontal.

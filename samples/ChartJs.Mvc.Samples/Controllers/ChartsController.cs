@@ -1,7 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 using jamiewest.ChartJs.Charts;
-using jamiewest.ChartJs.Datasets;
+using jamiewest.ChartJs.Data;
 using jamiewest.ChartJs;
 using jamiewest.ChartJs.Options.Scales;
 using ChartJs.Mvc.Samples.Utilities;

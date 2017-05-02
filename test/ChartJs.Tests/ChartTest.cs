@@ -3,7 +3,7 @@ using Xunit;
 
 namespace ChartJs.Tests
 {
-    public class UnitTest1
+    public class ChartTest
     {
         [Fact]
         public void Test1()
