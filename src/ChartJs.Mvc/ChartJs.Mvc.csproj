@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Description>ChartJs wrapper for ASP.NET Core Mvc</Description>
-    <TargetFrameworks>netcoreapp1.1</TargetFrameworks>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <RuntimeIdentifiers>win7-x86;win7-x64;linux-x64;osx.10.12-x64</RuntimeIdentifiers>
   </PropertyGroup>
