@@ -13,7 +13,7 @@ test: off
 os: Visual Studio 2017
 artifacts:
   - path: '**\*.nupkg' # find all NuGet packages recursively
-  - name: Nuget
+    name: Nuget
 deploy:
   provider: NuGet
   api_key: 
