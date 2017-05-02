@@ -16,4 +16,5 @@ deploy:
   api_key: 
     secure: AvY8S77QpsAYN4yY3SNLHLWnIs9WcNria2wxx2ejRQntemLrQpjAOowRsyPFgM7U
   skip_symbols: true
-  artifact: **\*.nupkg
+  artifacts:
+    - path: '**\*.nupkg' # find all NuGet packages recursively
