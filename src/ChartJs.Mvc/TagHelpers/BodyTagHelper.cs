@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
-namespace jamiewest.ChartJs.Mvc.TagHelpers
+namespace jamiewest.AspNetCore.ChartJs.TagHelpers
 {
     public class BodyTagHelper : TagHelper
     {

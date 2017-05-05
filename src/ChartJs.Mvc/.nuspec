@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
-    <metadata>
-    <id>jamiewest.ChartJs.Mvc</id>
-    <version>1.0.0</version>
-    <description>A Chart.js wrapper for ASP.NET Core.</description>
-    <authors>Jamie West</authors>
-</package>
