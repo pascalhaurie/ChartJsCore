@@ -1,10 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>ChartJs wrapper for ASP.NET Core Mvc</Description>
+    <Authors>Jamie West</Authors>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <AssemblyName>JamieWest.AspNetCore.ChartJs.Mvc</AssemblyName>
+    <AssemblyTitle>ChartJs.Mvc</AssemblyTitle>
+    <PackageId>JamieWest.AspNetCore.ChartJs.Mvc</PackageId>
+    <Description>Chart.js wrapper for ASP.NET Core</Description>
+    <VersionPrefix>1.0.0</VersionPrefix>
     <TargetFramework>netcoreapp1.1</TargetFramework>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <RuntimeIdentifiers>win7-x86;win7-x64;linux-x64;osx.10.12-x64</RuntimeIdentifiers>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageTags>Chart.js wrapper for ASP.NET Core</PackageTags>
+    <PackageReleaseNotes>Version 1.0.0</PackageReleaseNotes>
+    <PackageLicenseUrl>https://github.com/jamiewest/ChartJs/blob/master/LICENSE.md</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/jamiewest/ChartJs</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
